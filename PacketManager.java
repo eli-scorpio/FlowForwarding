@@ -81,7 +81,6 @@ public class PacketManager {
         byte[] packetContent = new byte[content.length() + 3];
 
         // Add header
-        System.out.println(userNo);
         addHeader(packetContent, Constants.FLOW_MOD, userNo, packetContent.length);
 
         // Add processed table

@@ -11,12 +11,10 @@ public class Controller extends Node {
             {   Constants.e2Address,        Constants.e1Address,        Constants.e1Address,        Constants.e1Address,      Constants.r1Net1Address},
             {   Constants.e2Address,        Constants.e1Address,        Constants.r1Net1Address,    Constants.e1Address,      Constants.r2Net2Address},
             {   Constants.e2Address,        Constants.e1Address,        Constants.r2Net2Address,    Constants.r1Net2Address,  Constants.e2Address},
-            {   Constants.e2Address,        Constants.e1Address,        Constants.e2Address,        Constants.r2Net3Address,  Constants.e2Address},
             //--------------------------------------------------------------------------------------------------------------------------------------
             {   Constants.e1Address,        Constants.e2Address,        Constants.e2Address,        Constants.e2Address,      Constants.r2Net3Address},
             {   Constants.e1Address,        Constants.e2Address,        Constants.r2Net2Address,    Constants.e2Address,      Constants.r1Net2Address},
             {   Constants.e1Address,        Constants.e2Address,        Constants.r1Net1Address,    Constants.r2Net2Address,  Constants.e1Address},
-            {   Constants.e1Address,        Constants.e2Address,        Constants.e1Address,        Constants.r1Net1Address,  Constants.e1Address},
             //--------------------------------------------------------------------------------------------------------------------------------------
     };
 

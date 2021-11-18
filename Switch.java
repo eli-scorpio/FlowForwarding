@@ -27,6 +27,7 @@ public class Switch extends Node {
 
     public synchronized void start() throws Exception {
         // Send helloPacket to Controller
+        System.out.println("Sending helloPacket to Controller");
         PacketManager helloPacket = new PacketManager();
         helloPacket.helloPacket();
         sendPacket(helloPacket);
@@ -40,10 +41,6 @@ public class Switch extends Node {
 
     public void processFlowTable(byte[] packetData) {
         byte[] packetContent = new byte[packetData.length-3];
-
-        // Extract packet content into byte Array
-       // for(int i = 0; i < packetContent.length; i++)
-       //     packetContent[i] = packetData[i+Constants.HEADER_SIZE];
 
         // Convert Byte Array to String
         String flowTableString = new String(packetData, Constants.HEADER_SIZE, packetData.length-Constants.HEADER_SIZE).trim();
@@ -110,8 +107,8 @@ public class Switch extends Node {
                 System.out.println("Forwarded Buffer to next hop - " + buffer.getAddress().getHostName());
                 this.buffer = null;
             }
-            // If buffer is received from e2 and destination is enduser2 then send to enduser on local host
-            else if(buffer.getAddress().getHostAddress().equals(Constants.e2Address) && packetContent[1] == 2) {
+            // If buffer is received from r2 and destination is enduser2 then send to enduser on local host
+            else if(buffer.getAddress().getHostAddress().equals(Constants.r2Net3Address) && packetContent[1] == 2) {
                 // Set destination
                 buffer.setSocketAddress(new InetSocketAddress("localhost", Constants.ENDUSER_PORT));
 
@@ -120,8 +117,8 @@ public class Switch extends Node {
                 System.out.println("Packet sent to EndUser2");
                 this.buffer = null;
             }
-            // If buffer is received from e1 and destination is enduser1 then send to enduser on local host
-            else if(buffer.getAddress().getHostAddress().equals(Constants.e1Address) && packetContent[1] == 1) {
+            // If buffer is received from r1 and destination is enduser1 then send to enduser on local host
+            else if(buffer.getAddress().getHostAddress().equals(Constants.r1Net1Address) && packetContent[1] == 1) {
                 // Set destination
                 buffer.setSocketAddress(new InetSocketAddress("localhost", Constants.ENDUSER_PORT));
 
